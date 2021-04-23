@@ -14,7 +14,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: kampol-nui/bookinfo-ratings:dev
+          tags: push ghcr.io/kampol-nui/bookinfo-ratings:dev
 
 
       # - run: docker build -t ghcr.io/kampol-nui/bookinfo-ratings:dev .
