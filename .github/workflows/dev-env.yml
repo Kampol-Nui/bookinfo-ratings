@@ -48,14 +48,15 @@ jobs:
             }               
   acceptance:
     needs: deploy
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout code
+    curl:
+      runs-on: ubuntu-20.04
+      steps:
+        - name: Checkout code
         uses: actions/checkout@v2
-      - name: curl
-      uses: wei/curl@master
-      with:
-        args: http://bookinfo.dev.opsta.net/student[X]/ratings/health | grep "Ratings is working"
+        - name: curl
+          uses: wei/curl@master
+        with:
+          args: http://bookinfo.dev.opsta.net/student[X]/ratings/health | grep "Ratings is working"
 
 
       # - run: docker build -t ghcr.io/kampol-nui/bookinfo-ratings:dev .
