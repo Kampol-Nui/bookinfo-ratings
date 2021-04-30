@@ -53,7 +53,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Curl
-        uses: http://bookinfo.dev.opsta.net/student[X]/ratings/health | grep "Ratings is working"
+        uses: curl http://bookinfo.dev.opsta.net/student[X]/ratings/health | grep "Ratings is working"
 
 
 
